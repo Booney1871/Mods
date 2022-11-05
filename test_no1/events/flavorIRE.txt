@@ -1,0 +1,23 @@
+# Flavour events for Irish minors - Missions
+# modded By Seán Rooney
+
+namespace = flavor_ire
+normal_or_historical_nations = yes
+
+#if ulster is conquered peacefully
+country_event={
+    id=flavor_ire.1
+    title=flavor_ire.1.t
+	desc=flavor_ire.1.desc
+	picture=DIPLOMACY_eventPicture
+	is_triggered_only=no
+	
+	hidden_effect={
+		ULS={
+			country_event={
+				id=flavor_ire.2
+			}
+		}
+	}
+	
+}
