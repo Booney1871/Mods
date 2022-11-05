@@ -10,14 +10,58 @@ country_event={
     title=flavor_ire.1.t
 	desc=flavor_ire.1.desc
 	picture=DIPLOMACY_eventPicture
-	is_triggered_only=no
+	is_triggered_only=yes
 	
-	hidden_effect={
-		ULS={
-			country_event={
-				id=flavor_ire.2
+	option{#offer Ulster vassalisation
+		name=flavor_ire.1.a
+		custom_tooltip=flavor_ire.1.a.tt
+		hidden_effect={
+		    ULS={
+				country_event={
+					id=flavor_ire.2
+				}
 			}
 		}
+		ai_chance={
+			factor=0
+	    }
 	}
-	
+	option={#keep alliance with Ulster
+		name=flavor_ire.1.b
+		add_trust={
+			who=ULS
+			value=20
+			mutual=yes
+		}
+		define_advisor={
+			type=statesman
+			skill=2
+			cost_multiplier=0.10
+		}
+		ai_chance={
+			factor=100
+		}
+	}
 }
+#root country asks for our vassalizastion
+country_event={
+	id=flavor_ire.2
+	title=flavor_ire.2.t
+	desc=flavor_ire.2.desc
+	picture=DIPLOMACY_eventPicture
+	is_triggered_only=yes
+	
+	option{
+		name=flavor_ire.2.a
+		tooltip={
+			FROM={
+				vassalize=ROOT
+			}
+		}
+		hidden_effect={
+			FROM={
+				country_event={
+					id=flavor_ire.3
+				}
+			}
+		}
