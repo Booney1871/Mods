@@ -36,21 +36,30 @@ ire_conquest_1 = {
 			}
 		}
 		trigger = {
-		    OR={
-			    ulster_area = {
-			    type = all
-				country_or_non_sovereign_subject_holds = ROOT    
-				}
-				AND={
-			        limit={exists=ULS}
-				    alliance_with=ULS
-					reverse_has_opinion={
-					    who=ULS
-					    value=150
+			if={
+				limit={exists=ULS}
+				OR={
+					AND={
+				    	alliance_with=ULS
+						reverse_has_opinion={
+					    	who=ULS
+					    	value=150
+						}
 					}
-				    
-			    }
-		    }		
+					AND={
+						is_rival=ULS
+						trade_embargoing=ULS
+					}	
+					ULS={is_subject_of=ROOT}
+				}
+				else ={
+					NOT={exist=ULS}
+					stability=1
+					prestige=20
+					ulster_area={add_permanent_claim=ROOT}
+				}
+			}
+		}		
 		effect = {
 				if={
 			        limit={
@@ -60,7 +69,9 @@ ire_conquest_1 = {
 						    value=150
 						}
 					}
-					country
+					country_event{
+						id=flavor_ire.1
+					}
 				}
 			}
 			connacht_area = {
