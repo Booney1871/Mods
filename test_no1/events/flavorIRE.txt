@@ -56,6 +56,7 @@ country_event={
 		tooltip={
 			FROM={
 				vassalize=ROOT
+				ulster_area={add_permanent_claim=ULS}
 			}
 		}
 		hidden_effect={
@@ -65,3 +66,111 @@ country_event={
 				}
 			}
 		}
+		ai_chance={
+			factor=30
+			modifier={
+				factor=0
+				OR={
+					ai=no
+					war_player=yes
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_enemy = FROM
+					is_rival = FROM
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = { 
+					diplomatic_reputation = 1
+					NOT = { diplomatic_reputation = 2 }
+				}
+			}
+			modifier = {
+				factor = 3
+				FROM = { diplomatic_reputation = 2 }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { NOT = { diplomatic_reputation = 0 }}
+			}
+		}
+	}
+	option={ # refuse
+		name=flavor_ire.2.b
+		tooltip={
+			reverse_add_casus_belli={
+				type=cb_vassalize_mission
+				target=FROM
+				months=360
+			}
+		}
+		hidden_effect{
+			FROM{
+				country_event={
+					flavor_ire.4
+				}
+			}
+		}
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 0.57
+				FROM = { 
+					diplomatic_reputation = 1
+					NOT = { diplomatic_reputation = 2 }
+				}
+			}
+			modifier = {
+				factor = 0.29
+				FROM = { diplomatic_reputation = 2 }
+			}
+			modifier = {
+				factor = 1.21
+				FROM = { NOT = { diplomatic_reputation = 0 } }
+			}
+		}
+	}
+}
+
+# Accept vassalizing
+country_event={
+	id=flavor_ire.3
+	title=flavor_ire.3.t
+	desc=flavor_ire.3.d
+	picture = DIPLOMACY_SIGNING_eventPicture
+	is_triggered_only = yes
+
+	option={ #ulster accepts vassalization
+		name=flavor.3.a
+		vassalize=FROM
+		ai_chance={
+			factor=100
+		}
+	}
+}
+
+#decline vassalization
+country_event{
+	id=flavor_ire.4
+	title=flavor_ire.4.t
+	desc=flavor_ire.4.d
+	picture = ACCUSATION_eventPicture
+	is_triggered_only = yes
+
+	option{ # this will mean war
+		name=flavor_ire.4.a
+		add_casus_belli={
+			type=cb_vassalize_mission
+			ulster_area={add_permanent_claim=ROOT}
+			target=FROM
+			months=360
+		}
+	}
+	ai_chance={
+		factor=100
+	}
+}

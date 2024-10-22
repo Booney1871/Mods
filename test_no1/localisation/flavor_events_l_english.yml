@@ -5059,6 +5059,15 @@
  tot_great_famine:0 "Great Famine"
  desc_tot_great_famine:0 "A great famine caused by war has increased the unrest in our capital."
  flavor_ire.1.t:0 "We will offer Ulster a chance of mutual protection"
- flavor_ire.1.d:0 "We have proven ourselves to be a valuable ally and gallant friend to the wild Ulster men./n"[Root.Monarch.GetName] has offered them a chance for protection against the Scots and English"
+ flavor_ire.1.desc:0 "We have proven ourselves to be a valuable ally and gallant friend to the wild Ulster men./n"[Root.Monarch.GetName] has offered them a chance for protection against the Scots and English"
  flavor_ire.1.tt:0 "We will offer §Y[ULS.GetName]§! vassalization. If they accept they become our vassal, otherwise we will get a §YSubjugation§! casus belli against the §Y[ULS.GetName]§! for §Y30 years§!.\n\nTheir acceptance gets more likely the more §YDiplomatic Reputation§! we have."
- flavor_ire.2.t
+ flavor_ire.2.t "[Root.Monarch.GetName] has offered us a cance for survival"
+ flavor_ire.2.desc:0 "In the dead of night as the wind howled and rain battered the old walls of $CAPITAL_CITY$ a man, ruined by the rain and wind burst through the castle gates./n"In his posetion a letter from the good [From.Monarch.GetName] of [From.getName] offering vassalization for mutual protection./n"While this offer may seem insulting we do not have the power to fend of the foreingers plotting our destruction without help, this offer may be beneficial"
+ flavor_ire.2.a:0 "We should accept this offer. At least we serve another Irish kingdom." 
+ flavor_ire.2.b:0 "We need protection, yes. But not from these braggarts.
+ flavor_ire.3.t:0 "The Ulster accepts our Offer!"
+ flavor_ire.3.desc:0 "We have recieved a message from [ULS.Monarch.GetName], they have accepted out offer, They ar now our loyal vassal!"
+ flavor_ire.3.a:0 "Wonderfull!"
+ flavor_ire.4.t:0 "The Ulster rejects our Offer!"
+ flavor_ire.4.desc:0 "We have recieved a message from [ULS.Monarch.GetName], they have rejected out offer, They doubt we can be the protection they require"
+ flavor_ire.4.a:0 "We tried to convince them with the word. Now the sword shall try it."
